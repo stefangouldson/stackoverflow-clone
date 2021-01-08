@@ -25,7 +25,7 @@
 
   .vote, .answer {
     width: 60px;
-    height: 60px;    
+    height: 60px;
   }
 
   .status {
@@ -78,7 +78,7 @@ form.form-delete {
 
     &.off, &.off:hover {
       color: $gray-500;
-    }    
+    }
 
     &.favorite {
       &.favorited, &.favorited:hover {
@@ -89,7 +89,7 @@ form.form-delete {
     &.vote-accepted {
       color: $green;
     }
-  }  
+  }
 }
 
 .post {
@@ -97,4 +97,8 @@ form.form-delete {
   &:not(:last-child) {
     border-bottom: 1px solid rgba($black, .1);
   }
+}
+
+[v-cloak]{
+    display: none;
 }

@@ -7,7 +7,7 @@ use App\Question;
 use Illuminate\Http\Request;
 
 class AnswersController extends Controller
-{    
+{
     /**
      * Store a newly created resource in storage.
      *
@@ -21,7 +21,7 @@ class AnswersController extends Controller
         ]) + ['user_id' => \Auth::id()]);
 
         return back()->with('success', "Your answer has been submitted successfully");
-    }    
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -50,6 +50,13 @@ class AnswersController extends Controller
         $answer->update($request->validate([
             'body' => 'required',
         ]));
+
+        if($request->expectsJson()){
+            return response()->json([
+                'message' => 'Your answer has been update',
+                'body_html'=> $answer->body_html
+            ]);
+        }
 
         return redirect()->route('questions.show', $question->slug)->with('success', 'Your answer has been updated');
     }
