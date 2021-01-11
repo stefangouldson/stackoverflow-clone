@@ -22,6 +22,7 @@
         "vue": "^2.5.7"
     },
     "dependencies": {
-        "node-sass": "^5.0.0"
+        "node-sass": "^5.0.0",
+        "vue-izitoast": "^1.2.1"
     }
 }
