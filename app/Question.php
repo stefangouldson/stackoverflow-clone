@@ -7,14 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class Question extends Model
 {
     use VotableTrait;
-    
+
     protected $fillable = ['title', 'body'];
 
-    protected $appends = ['created_date'];
-    
+    protected $appends = ['created_date', 'is_favorited', 'favorites_count'];
+
     public function user() {
         return $this->belongsTo(User::class);
-    }    
+    }
 
     public function setTitleAttribute($value)
     {
@@ -82,7 +82,7 @@ class Question extends Model
     public function getFavoritesCountAttribute()
     {
         return $this->favorites->count();
-    }    
+    }
 
     public function getExcerptAttribute()
     {
