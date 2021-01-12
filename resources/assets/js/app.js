@@ -16,6 +16,11 @@ import Vue from 'vue';
 
 Vue.use(VueIzitoast);
 
+import Authorization from './authorization/authorize';
+
+Vue.use(Authorization);
+
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
