@@ -31,6 +31,7 @@ Vue.component('user-info', require('./components/UserInfo.vue'));
 Vue.component('answer', require('./components/Answer.vue'));
 Vue.component('favorite', require('./components/Favourite.vue'));
 Vue.component('accept', require('./components/Accept.vue'));
+Vue.component('vote', require('./components/Vote.vue'));
 
 const app = new Vue({
     el: '#app'
