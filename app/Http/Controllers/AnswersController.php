@@ -15,7 +15,7 @@ class AnswersController extends Controller
 
     public function index(Question $question)
     {
-        return $question->answers()->with('user')->simplePaginate(1);
+        return $question->answers()->with('user')->simplePaginate(3);
     }
     /**
      * Store a newly created resource in storage.
@@ -25,9 +25,17 @@ class AnswersController extends Controller
      */
     public function store(Question $question, Request $request)
     {
-        $question->answers()->create($request->validate([
+        $answer = $question->answers()->create($request->validate([
             'body' => 'required'
         ]) + ['user_id' => \Auth::id()]);
+
+        if($request->expectsJson())
+        {
+            return response()->json([
+                'message' => 'Your answer has been submitted successfully',
+                'answer' => $answer->load('user')
+            ]);
+        }
 
         return back()->with('success', "Your answer has been submitted successfully");
     }
